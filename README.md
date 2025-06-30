@@ -54,10 +54,4 @@ Perfect for:
 | 🐍 Language        | Python 3.10+                      |
 
 ---
-
-## ⚙️ Setup in 3 Steps
-
-```bash
-git clone https://github.com/your-username/nursechartx.git
-cd nursechartx
-pip install -r requirements.txt
+ 
