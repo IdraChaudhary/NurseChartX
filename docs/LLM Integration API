@@ -1,0 +1,17 @@
+from src.llm.openai_client import OpenAIClient
+from src.llm.cohere_client import CohereClient
+from src.llm.anthropic_client import AnthropicClient
+
+# Initialize clients
+openai_client = OpenAIClient(api_key="your-key")
+cohere_client = CohereClient(api_key="your-key")
+anthropic_client = AnthropicClient(api_key="your-key")
+
+# Analyze medical text
+openai_analysis = openai_client.analyze_medical_text(
+    text, 
+    analysis_type="comprehensive"
+)
+
+cohere_analysis = cohere_client.analyze_medical_text(text)
+anthropic_analysis = anthropic_client.analyze_medical_text(text)
