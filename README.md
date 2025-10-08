@@ -16,7 +16,10 @@ The healthcare industry generates vast amounts of unstructured clinical data thr
 - **Web Interface**: User-friendly Gradio interface for easy deployment and interaction
 
 ## Architecture
+
+```
 Input Layer: Medical Chart Images → OCR Processing → Text Extraction → Field Parsing → LLM Analysis → Structured Output
+```
 
 ## Installation
 
@@ -32,26 +35,36 @@ Input Layer: Medical Chart Images → OCR Processing → Text Extraction → Fie
 ```bash
 git clone https://github.com/your-username/NurseChartX.git
 cd NurseChartX
-Install dependencies:
+```
 
-bash
+2. Install dependencies:
+```bash
 pip install -r requirements.txt
-Set up environment variables:
+```
 
-bash
+3. Set up environment variables:
+```bash
 cp .env.example .env
 # Edit .env with your API keys
-Run the application:
+```
 
-bash
+4. Run the application:
+```bash
 python src/main.py
-Docker Deployment
-bash
+```
+
+### Docker Deployment
+
+```bash
 docker build -t nursechartx .
 docker run -p 7860:7860 nursechartx
-Usage
-Basic Usage
-python
+```
+
+## Usage
+
+### Basic Usage
+
+```python
 from src.ocr.easyocr_engine import EasyOCREngine
 from src.processing.text_parser import MedicalTextParser
 
@@ -64,29 +77,31 @@ extracted_text = ocr_engine.extract_text(image)
 # Parse medical data
 parser = MedicalTextParser()
 structured_data = parser.parse_medical_fields(extracted_text)
-Web Interface
+```
+
+### Web Interface
+
 Start the Gradio web interface:
-
-bash
+```bash
 python src/interface/gradio_app.py
-Access the application at http://localhost:7860
+```
 
-Supported Medical Fields
-Patient demographics (name, ID, date of birth)
+Access the application at `http://localhost:7860`
 
-Vital signs (blood pressure, pulse, temperature, respiratory rate)
+## Supported Medical Fields
 
-Clinical observations and notes
+- Patient demographics (name, ID, date of birth)
+- Vital signs (blood pressure, pulse, temperature, respiratory rate)
+- Clinical observations and notes
+- Medication administration records
+- Assessment findings
+- Nursing interventions
 
-Medication administration records
+## Configuration
 
-Assessment findings
+### Environment Variables
 
-Nursing interventions
-
-Configuration
-Environment Variables
-bash
+```bash
 # API Keys (optional)
 OPENAI_API_KEY=your_openai_key
 COHERE_API_KEY=your_cohere_key
@@ -96,17 +111,24 @@ ANTHROPIC_API_KEY=your_anthropic_key
 DEBUG=false
 OCR_ENGINE=easyocr
 MAX_FILE_SIZE_MB=10
-Custom Field Definitions
-Modify config/settings.py to add custom medical field patterns:
+```
 
-python
+### Custom Field Definitions
+
+Modify `config/settings.py` to add custom medical field patterns:
+
+```python
 CUSTOM_FIELDS = {
     "custom_vital": r"Custom Vital[:\-]?\s*([0-9\.]+)",
     "special_observation": r"Special Obs[:\-]?\s*(.+)"
 }
-API Documentation
-OCR Endpoints
-python
+```
+
+## API Documentation
+
+### OCR Endpoints
+
+```python
 POST /api/ocr/extract
 Content-Type: multipart/form-data
 
@@ -121,8 +143,11 @@ Response:
     "confidence": 0.95,
     "processing_time": 1.23
 }
-Medical Analysis Endpoints
-python
+```
+
+### Medical Analysis Endpoints
+
+```python
 POST /api/analyze/medical
 Content-Type: application/json
 
@@ -138,89 +163,89 @@ Response:
     "clinical_notes": {...},
     "confidence_scores": {...}
 }
-Performance Metrics
-Text Extraction Accuracy: 94.2% on standard medical charts
+```
 
-Field Recognition Precision: 91.8% for structured fields
+## Performance Metrics
 
-Processing Speed: 2.3 seconds average per image
+- **Text Extraction Accuracy**: 94.2% on standard medical charts
+- **Field Recognition Precision**: 91.8% for structured fields
+- **Processing Speed**: 2.3 seconds average per image
+- **Multi-language Support**: English (primary), with extensible architecture for additional languages
 
-Multi-language Support: English (primary), with extensible architecture for additional languages
+## Use Cases
 
-Use Cases
-Clinical Research
-Automated data extraction from historical medical records
+### Clinical Research
+- Automated data extraction from historical medical records
+- Structured dataset creation for research analysis
+- Anonymized data aggregation for population health studies
 
-Structured dataset creation for research analysis
+### Healthcare Operations
+- Digital transformation of paper-based nursing documentation
+- Real-time vital sign monitoring and trend analysis
+- Quality assurance and compliance auditing
 
-Anonymized data aggregation for population health studies
+### Medical Education
+- Training data generation for healthcare AI applications
+- Educational tool for nursing documentation best practices
+- Case study development from real clinical scenarios
 
-Healthcare Operations
-Digital transformation of paper-based nursing documentation
+## Security and Compliance
 
-Real-time vital sign monitoring and trend analysis
+- Local processing option for sensitive medical data
+- Configurable data retention policies
+- HIPAA-compliant deployment configurations
+- Audit logging for data access and processing
 
-Quality assurance and compliance auditing
+## Contributing
 
-Medical Education
-Training data generation for healthcare AI applications
-
-Educational tool for nursing documentation best practices
-
-Case study development from real clinical scenarios
-
-Security and Compliance
-Local processing option for sensitive medical data
-
-Configurable data retention policies
-
-HIPAA-compliant deployment configurations
-
-Audit logging for data access and processing
-
-Contributing
 We welcome contributions from the healthcare, AI, and open-source communities. Please see our Contributing Guidelines for details on how to submit pull requests, report issues, and suggest enhancements.
 
-Development Setup
-Fork the repository
+### Development Setup
 
-Create a feature branch
-
-Install development dependencies:
-
-bash
+1. Fork the repository
+2. Create a feature branch
+3. Install development dependencies:
+```bash
 pip install -r requirements-dev.txt
-Run tests:
-
-bash
+```
+4. Run tests:
+```bash
 pytest tests/
-Citation
+```
+
+## Citation
+
 If you use NurseChartX in your research or project, please cite:
 
-bibtex
+```bibtex
 @software{nursechartx2024,
   title = {NurseChartX: AI-Powered Medical Chart Extraction System},
   author = {Your Name and Contributors},
   year = {2024},
   url = {https://github.com/your-username/NurseChartX}
 }
-License
+```
+
+## License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Support
-Documentation: docs/
+## Support
 
-Issues: GitHub Issues
+- **Documentation**: [docs/](docs/)
+- **Issues**: [GitHub Issues](https://github.com/your-username/NurseChartX/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/your-username/NurseChartX/discussions)
 
-Discussions: GitHub Discussions
+## Acknowledgments
 
-Acknowledgments
-EasyOCR and Tesseract communities for OCR capabilities
+- EasyOCR and Tesseract communities for OCR capabilities
+- OpenAI, Cohere, and Anthropic for language model integrations
+- Gradio team for the user interface framework
+- Healthcare professionals who provided domain expertise and testing
 
-OpenAI, Cohere, and Anthropic for language model integrations
+---
 
-Gradio team for the user interface framework
+**NurseChartX**: Transforming medical documentation through artificial intelligence.
 
-Healthcare professionals who provided domain expertise and testing
 
-NurseChartX: Transforming medical documentation through artificial intelligence.
+You can copy this entire text and use it as your README.md file. The formatting is now correct and will display properly on GitHub and other markdown viewers.
