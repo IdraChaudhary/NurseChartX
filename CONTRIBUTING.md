@@ -15,10 +15,10 @@ pip install -r requirements-dev.txt
 
 nstall pre-commit hooks:
 
-bash
+```bash
 pre-commit install
 
-```bash
+```
 Code Style
 Follow PEP 8 guidelines
 
@@ -29,31 +29,23 @@ Write docstrings for all public functions and classes
 Maximum line length: 88 characters (Black formatter)
 
 Testing
-Write tests for new functionality
-
-Ensure all tests pass before submitting PR
-
-Run tests: pytest tests/
-
-Test coverage: pytest --cov=src tests/
+-Write tests for new functionality
+-Ensure all tests pass before submitting PR
+-Run tests: pytest tests/
+-Test coverage: pytest --cov=src tests/
 
 Pull Request Process
-Create a feature branch from main
-
-Make your changes with clear commit messages
-
-Add or update tests as needed
-
-Update documentation if required
-
-Ensure CI checks pass
-
-Submit PR with clear description of changes
+-Create a feature branch from main
+-Make your changes with clear commit messages
+-Add or update tests as needed
+-Update documentation if required
+-Ensure CI checks pass
+-Submit PR with clear description of changes
 
 Issue Reporting
-Use the issue templates
+-Use the issue templates
+-Provide reproduction steps for bugs
 
-Provide reproduction steps for bugs
 
 For feature requests, explain the use case and benefits
 
