@@ -1,0 +1,11 @@
+from src.processing.data_validator import MedicalDataValidator
+
+validator = MedicalDataValidator()
+
+# Validate extracted medical data
+validation_results = validator.validate_medical_data(structured_data)
+
+if validation_results['is_valid']:
+    print("Data validation passed")
+else:
+    print(f"Validation errors: {validation_results['errors']}")
