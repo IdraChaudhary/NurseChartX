@@ -247,5 +247,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **NurseChartX**: Transforming medical documentation through artificial intelligence.
 
-
-You can copy this entire text and use it as your README.md file. The formatting is now correct and will display properly on GitHub and other markdown viewers.
