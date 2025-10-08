@@ -1,0 +1,8 @@
+[![Build Status](https://github.com/IdraChaudhary/NurseChartX/actions/workflows/ci.yml/badge.svg)](https://github.com/IdraChaudhary/NurseChartX/actions)
+[![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Coverage Status](https://img.shields.io/coveralls/github/IdraChaudhary/NurseChartX)](https://coveralls.io/github/IdraChaudhary/NurseChartX)
+[![Docker Ready](https://img.shields.io/badge/docker-ready-blue)](https://hub.docker.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+# NurseChartX
+...
