@@ -1,0 +1,11 @@
+from src.processing.text_parser import MedicalTextParser
+
+parser = MedicalTextParser()
+
+# Parse medical fields from extracted text
+structured_data = parser.parse_medical_fields(extracted_text)
+
+# Access parsed data
+patient_name = structured_data.get('patient_name')
+vital_signs = structured_data.get('vital_signs')
+clinical_notes = structured_data.get('clinical_notes')
