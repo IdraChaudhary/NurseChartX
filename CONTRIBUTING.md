@@ -14,8 +14,6 @@ pip install -r requirements.txt
 pip install -r requirements-dev.txt
 
 nstall pre-commit hooks:
-
-```bash
 pre-commit install
 
 ```
