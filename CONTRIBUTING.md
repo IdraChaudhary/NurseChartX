@@ -18,6 +18,7 @@ nstall pre-commit hooks:
 bash
 pre-commit install
 
+```bash
 Code Style
 Follow PEP 8 guidelines
 
