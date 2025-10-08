@@ -1,0 +1,65 @@
+POST /api/process
+Process a medical chart image and return structured data.
+
+Request:
+
+json
+{
+  "image": "base64_encoded_image",
+  "ocr_engine": "easyocr",
+  "analysis_type": "comprehensive",
+  "include_llm_analysis": true
+}
+Response:
+
+json
+{
+  "success": true,
+  "data": {
+    "extracted_text": "raw extracted text",
+    "structured_data": {
+      "patient_information": {...},
+      "vital_signs": {...},
+      "clinical_data": {...}
+    },
+    "validation_results": {...},
+    "llm_analysis": {
+      "openai": {...},
+      "cohere": {...},
+      "anthropic": {...}
+    }
+  },
+  "metadata": {
+    "processing_time": 2.34,
+    "confidence_score": 0.87
+  }
+}
+GET /api/health
+Check API health status.
+
+Response:
+
+json
+{
+  "status": "healthy",
+  "version": "1.0.0",
+  "timestamp": "2024-01-01T12:00:00Z"
+}
+Batch Processing
+python
+from src.main import process_batch_directory
+
+# Process multiple charts
+results = process_batch_directory(
+    input_dir="./medical_charts/",
+    output_dir="./results/",
+    ocr_engine="easyocr"
+)
+Error Handling
+All API methods return structured error responses:
+
+python
+try:
+    result = ocr_engine.extract_text(image)
+except Exception as e:
+    print(f"OCR processing failed: {e}")
